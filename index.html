@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Csokonai Hotel & Panzió - Lakitelek</title>
+</head>
+<body>
+    <script>
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.backgroundColor = '#f4efe9';
+        document.body.style.fontFamily = '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif';
+        document.body.style.color = '#3e362e';
+
+        const container = document.createElement('div');
+        container.style.maxWidth = '800px';
+        container.style.margin = '0 auto';
+        container.style.backgroundColor = '#ffffff';
+        container.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)';
+        container.style.minHeight = '100vh';
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+
+        const header = document.createElement('header');
+        header.style.textAlign = 'center';
+        header.style.padding = '30px 20px';
+        
+        const title = document.createElement('h1');
+        title.textContent = 'Csokonai Hotel';
+        title.style.margin = '0 0 10px 0';
+        title.style.fontSize = '32px';
+        title.style.letterSpacing = '1px';
+        title.style.color = '#2c241b';
+        
+        const subtitle = document.createElement('p');
+        subtitle.textContent = 'A nyugalom szigete Lakitelken';
+        subtitle.style.margin = '0';
+        subtitle.style.fontStyle = 'italic';
+        subtitle.style.color = '#8b7355';
+
+        header.appendChild(title);
+        header.appendChild(subtitle);
+
+        const heroImage = document.createElement('img');
+        heroImage.src = 'kastely.jpeg';
+        heroImage.style.width = '100%';
+        heroImage.style.height = '350px';
+        heroImage.style.objectFit = 'cover';
+
+        const main = document.createElement('main');
+        main.style.padding = '40px';
+        main.style.flex = '1';
+
+        const welcomeTitle = document.createElement('h2');
+        welcomeTitle.textContent = 'Köszöntjük leendő vendégeinket!';
+        welcomeTitle.style.borderBottom = '2px solid #e8dfd5';
+        welcomeTitle.style.paddingBottom = '10px';
+
+        const welcomeText = document.createElement('p');
+        welcomeText.textContent = 'Családias hangulatú szállodánk Lakitelek csendes, a barátságos Lakiteleki bennszülöttek társaságában, fás utcájában, a Tisza-parttól és a tősfürdőtől nem messze kínál tökéletes kikapcsolódást. Akár egy hétvégi pihenésre, akár hosszabb nyaralásra érkezik, nálunk otthon fogja érezni magát.';
+        welcomeText.style.lineHeight = '1.8';
+        welcomeText.style.fontSize = '16px';
+        welcomeText.style.marginBottom = '30px';
+
+        const servicesTitle = document.createElement('h3');
+        servicesTitle.textContent = 'Amit kínálunk:';
+
+        const servicesList = document.createElement('ul');
+        servicesList.style.lineHeight = '1.8';
+        servicesList.style.color = '#5a4e42';
+        
+        const items = ['Kényelmes, légkondicionált szobák', 'Bőséges svédasztalos reggeli', 'Ingyenes parkolás a zárt udvarban', 'Motorkerékpár lehetőség'];
+        items.forEach(itemText => {
+            const li = document.createElement('li');
+            li.textContent = itemText;
+            servicesList.appendChild(li);
+        });
+
+        const mapTitle = document.createElement('h3');
+        mapTitle.textContent = 'Itt talál meg minket:';
+        mapTitle.style.marginTop = '40px';
+
+        const mapContainer = document.createElement('div');
+        mapContainer.style.width = '100%';
+        mapContainer.style.borderRadius = '8px';
+        mapContainer.style.overflow = 'hidden'; 
+        mapContainer.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+        mapContainer.style.marginTop = '15px';
+
+        const mapIframe = document.createElement('iframe');
+        mapIframe.src = 'https://www.google.com/maps/embed?pb=!4v1792478529085!6m8!1m7!1srieHQ4kCYi-vs3e9G9C91g!2m2!1d46.87337345578054!2d19.98858256016113!3f143.08082420564938!4f0.3226926168926667!5f0.7820865974627469';
+        mapIframe.width = '100%'; 
+        mapIframe.height = '400'; 
+        mapIframe.style.border = '0';
+        mapIframe.setAttribute('allowfullscreen', '');
+        mapIframe.setAttribute('loading', 'lazy');
+        mapIframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+
+        mapContainer.appendChild(mapIframe);
+
+        const contactBox = document.createElement('div');
+        contactBox.style.backgroundColor = '#fdfbf9';
+        contactBox.style.border = '1px solid #e8dfd5';
+        contactBox.style.padding = '20px';
+        contactBox.style.marginTop = '40px';
+        contactBox.style.borderRadius = '8px';
+        contactBox.style.textAlign = 'center';
+
+        const addressText = document.createElement('p');
+        addressText.innerHTML = '📍 <strong>Cím:</strong> 6065 Lakitelek, Csokonai utca';
+        addressText.style.margin = '0 0 10px 0';
+        addressText.style.fontSize = '18px';
+
+        const bookingBtn = document.createElement('button');
+        bookingBtn.textContent = 'Szobafoglalás';
+        bookingBtn.style.backgroundColor = '#8b7355';
+        bookingBtn.style.color = 'white';
+        bookingBtn.style.border = 'none';
+        bookingBtn.style.padding = '10px 20px';
+        bookingBtn.style.fontSize = '16px';
+        bookingBtn.style.borderRadius = '4px';
+        bookingBtn.style.cursor = 'pointer';
+        bookingBtn.style.marginTop = '10px';
+        
+        bookingBtn.onmouseover = function() { this.style.backgroundColor = '#6e5a42'; }
+        bookingBtn.onmouseout = function() { this.style.backgroundColor = '#8b7355'; }
+
+        contactBox.appendChild(addressText);
+        contactBox.appendChild(bookingBtn);
+
+        // Összefűzés
+        main.appendChild(welcomeTitle);
+        main.appendChild(welcomeText);
+        main.appendChild(servicesTitle);
+        main.appendChild(servicesList);
+        main.appendChild(mapTitle);      
+        main.appendChild(mapContainer);  
+        main.appendChild(contactBox);
+
+        const footer = document.createElement('footer');
+        footer.style.backgroundColor = '#2c241b';
+        footer.style.color = '#d3c5b4';
+        footer.style.textAlign = 'center';
+        footer.style.padding = '20px';
+        footer.style.fontSize = '14px';
+
+        const footerText = document.createElement('p');
+        footerText.textContent = '© 2026 Csokonai Hotel, Lakitelek. Barna Bucsú, etneveL sövtÖ.';
+        footerText.style.margin = '0';
+        
+        footer.appendChild(footerText);
+
+        container.appendChild(header);
+        container.appendChild(heroImage);
+        container.appendChild(main);
+        container.appendChild(footer);
+        
+        document.body.appendChild(container);
+    </script>
+</body>
+</html>
